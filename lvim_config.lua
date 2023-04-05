@@ -23,6 +23,9 @@ lvim.builtin.terminal.persist_size = true
 
 -- Which-Key bindings
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings['u'] = { "<cmd>UndotreeToggle<CR>", "Undotree" }
+lvim.builtin.which_key.mappings['gS'] = { "<cmd>Git<CR>", "Fugative" }
+lvim.builtin.which_key.mappings['P'] = { "\"_dP", "Special paste" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
 -- name = "+Trouble",
@@ -43,17 +46,14 @@ lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "jsonc",
   "lua",
   "python",
   "typescript",
   "tsx",
-  "css",
+  "javascript",
+  "c",
   "yaml",
+  "markdown"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -113,7 +113,9 @@ lvim.plugins = {
   {
     "aserowy/tmux.nvim",
     config = function() return require("tmux").setup() end
-  }
+  },
+  { 'mbbill/undotree' },
+  { 'tpope/vim-fugitive' }
 }
 
 -- Vim Options Overrides
