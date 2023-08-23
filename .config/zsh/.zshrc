@@ -11,13 +11,13 @@ zstyle ':z4h:' auto-update      'no'
 zstyle ':z4h:' auto-update-days '28'
 
 # Keyboard type: 'mac' or 'pc'.
-zstyle ':z4h:bindkey' keyboard  'mac'
+zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Start tmux if not already in tmux.
-zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
+zstyle ':z4h:' start-tmux command tmux -2 -u new -A -D -t z4h
 
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
-zstyle ':z4h:' prompt-at-bottom 'no'
+zstyle ':z4h:' prompt-at-bottom 'yes'
 
 # Mark up shell's output with semantic information.
 zstyle ':z4h:' term-shell-integration 'yes'
@@ -63,6 +63,7 @@ path=(~/bin $path)
 
 # EXPORT ENVIRONMENT VARIABLES.
 export GPG_TTY=$TTY
+export COLORTERM=truecolor
 
 # SOURCE ADDITIONAL LOCAL FILES IF THEY EXIST.
 z4h source ~/.env.zsh
