@@ -11,7 +11,7 @@ zstyle ':z4h:' auto-update      'no'
 zstyle ':z4h:' auto-update-days '28'
 
 # Keyboard type: 'mac' or 'pc'.
-zstyle ':z4h:bindkey' keyboard  'pc'
+zstyle ':z4h:bindkey' keyboard  'mac'
 
 # Start tmux if not already in tmux.
 zstyle ':z4h:' start-tmux command tmux -2 -u new -A -D -t z4h
@@ -59,11 +59,19 @@ z4h install ohmyzsh/ohmyzsh || return
 z4h init || return
 
 # EXTEND PATH.
-path=(~/bin $path)
+PATH="$HOME/.pyenv/bin:$PATH"
 
 # EXPORT ENVIRONMENT VARIABLES.
-export GPG_TTY=$TTY
 export COLORTERM=truecolor
+
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+
+export GPG_TTY=$TTY
 
 # SOURCE ADDITIONAL LOCAL FILES IF THEY EXIST.
 z4h source ~/.env.zsh
