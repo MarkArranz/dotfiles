@@ -1,4 +1,12 @@
 return {
+  -- nvim-notify overrides
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      top_down = false,
+    },
+  },
+
   -- statusline overrides
   {
     "nvim-lualine/lualine.nvim",
