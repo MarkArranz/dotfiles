@@ -59,7 +59,7 @@ z4h install ohmyzsh/ohmyzsh || return
 z4h init || return
 
 # EXTEND PATH.
-PATH="$HOME/.pyenv/bin:$PATH"
+PATH="$PATH:$HOME/.pyenv/bin:$HOME/.dotnet/tools"
 
 # EXPORT ENVIRONMENT VARIABLES.
 export COLORTERM=truecolor
@@ -72,6 +72,11 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
 
 export GPG_TTY=$TTY
+
+# nvm Config
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # SOURCE ADDITIONAL LOCAL FILES IF THEY EXIST.
 z4h source ~/.env.zsh
@@ -106,11 +111,14 @@ compdef _directories md
 [[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
 # DEFINE ALIASES.
+# View dotfile changes wherever you are in the file system.
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles'
 alias tree='tree -a -I .git'
 alias clear=z4h-clear-screen-soft-bottom
 alias els='ls -a'
 alias ls='exa -a --icons'
 alias ll='exa -lFah --icons --header --accessed --modified --created'
+
 alias books='cd ~/OneDrive/Calibre\ Library/'
 
 # ADD FLAGS TO EXISTING ALIASES.

@@ -1,2 +1,3 @@
-*
-!.gitignore
+# Ignore cloned repos
+/alacritty/themes/
+/tmux/plugins/
