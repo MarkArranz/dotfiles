@@ -1,3 +1,9 @@
 # Ignore cloned repos
 /alacritty/themes/
 /tmux/plugins/
+
+# Ignore generated files
+/zsh/.p10k.zsh
+/zsh/.p10k.zsh.zwc
+/zsh/.zcompdump
+/zsh/.zsh_history
