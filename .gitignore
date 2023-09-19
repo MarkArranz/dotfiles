@@ -3,6 +3,7 @@
 /tmux/plugins/
 
 # Ignore generated files
+*.log
 /zsh/.p10k.zsh
 /zsh/.p10k.zsh.zwc
 /zsh/.zcompdump
