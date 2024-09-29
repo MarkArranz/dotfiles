@@ -1,11 +1,8 @@
-all: shell.conf editor.conf term.conf
+PROGRAMS = $(shell ls -d */)
 
-zsh.conf:
-	stow --target=$$HOME --verbose --dotfiles zsh
+.PHONY: all $(PROGRAMS)
 
-nvim.conf:
-	stow --target=$$HOME --verbose --dotfiles nvim
+all: $(PROGRAMS)
 
-kitty.conf:
-	stow --target=$$HOME --verbose --dotfiles kitty
-
+$(PROGRAMS):
+	stow --target=$(HOME) --verbose --adopt --dotfiles $@
