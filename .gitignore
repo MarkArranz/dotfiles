@@ -1,2 +1,7 @@
 # Ignore the lazy lock file
 **/lazy-lock.json
+
+# Ignore history, log, and temp files
+**/*history.json
+**/*.log
+**/tmp*

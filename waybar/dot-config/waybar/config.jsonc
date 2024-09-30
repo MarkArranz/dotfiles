@@ -1,0 +1,205 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+{
+  // -------------------------------------------------------------------------
+  // Global configuration
+  // -------------------------------------------------------------------------
+  "layer": "top",
+  "position": "top",
+  // If height property would be not present, it'd be calculated dynamically
+  // "height": 30,
+  "modules-left": [
+    "hyprland/workspaces",
+    "privacy"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "bluetooth",
+    "wireplumber",
+    "network",
+    "memory",
+    "cpu",
+    "temperature",
+    "battery",
+    "clock#date",
+    "clock#time",
+    "custom/power"
+  ],
+  // -------------------------------------------------------------------------
+  // Modules
+  // -------------------------------------------------------------------------
+  "battery": {
+    "interval": 10,
+    "states": {
+      "critical": 5,
+      "_10": 10,
+      "_20": 20,
+      "_30": 30,
+      "_40": 40,
+      "_50": 50,
+      "_60": 60,
+      "_70": 70,
+      "_80": 80,
+      "_90": 90,
+      "full": 100
+    },
+    "format-charging": "󱐋{icon} {capacity:2}%", // Icon: nf-md-lightning_bolt
+    "format-discharging": "{icon} {capacity:2}%",
+    "format-icons": {
+      "critical": "󰂎", // Icon: nf-md-battery_outline
+      "_10": "󰁺", // Icon: nf-md-battery_10
+      "_20": "󰁻", // Icon: nf-md-battery_20
+      "_30": "󰁼", // Icon: nf-md-battery_30
+      "_40": "󰁽", // Icon: nf-md-battery_40
+      "_50": "󰁾", // Icon: nf-md-battery_50
+      "_60": "󰁿", // Icon: nf-md-battery_60
+      "_70": "󰂀", // Icon: nf-md-battery_70
+      "_80": "󰂁", // Icon: nf-md-battery_80
+      "_90": "󰂂", // Icon: nf-md-battery_90
+      "full": "󰁹" // Icon: nf-md-battery
+    },
+    "tooltip": true
+  },
+  "bluetooth": {
+    "format": "󰂯", // Icon: nf-md-bluetooth
+    "format-disabled": "󰂲", // Icon: nf-md-bluetooth_off
+    "format-connected": "󰂯", // Icon: nf-md-bluetooth
+    "format-connected-battery": "󰂯 {device_battery_percentage:2}%", // Icon: nf-md-bluetooth
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "bluetooth toggle"
+  },
+  // Chrono Format Specifications:
+  // https://fmt.dev/latest/syntax/#chrono-format-specifications
+  "clock#time": {
+    "interval": 1,
+    "format": " {:%I:%M %p}",
+    "timezone": "America/Los_Angeles",
+    "tooltip": false
+  },
+  "clock#date": {
+    "interval": 10,
+    "format": " {:%a, %b %e, %Y}", // Icon: nf-fa-calendar
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 5,
+    "format": " {usage:2}%", // Icon: nf-fa-microchip
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "custom/power": {
+    "format": "", // Icon: nf-fa-power_off
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "/home/mark/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 120
+  },
+  "hyprland/workspaces": {
+    "format": "{icon} {name:2} {windows}",
+    "format-icons": {
+      "urgent": "", // Icon: nf-fa-circle_exclamation
+      "active": "", // Icon: nf-fa-circle_dot
+      "default": "" // Icon: nf-fa-circle_o
+    },
+    "format-window-separator": "|",
+    "window-rewrite": {
+      "class<firefox> title<.*github.*>": "", // Icon: github
+      "class<firefox> title<.*youtube.*>": "", // Icon: youtube
+      "class<firefox>": "", // Icon: firefox
+      "class<kitty> title<nvim>": "", // Icon: code
+      "class<kitty>": "", // Icon: terminal
+      "class<thunar>": "󰉋" // Icon: nf-md-folder
+    },
+    "window-rewrite-default": "" // Icon: window-maximize
+  },
+  "memory": {
+    "interval": 5,
+    "format": " {:2}%", // Icon: memory
+    "states": {
+      "warning": 75,
+      "critical": 90
+    }
+  },
+  "network": {
+    "interval": 5,
+    "format-disconnected": "󰤮", // Icon: nf-fa-wifi_strength_off_outline
+    "tooltip-format-disconnected": "Disconnected",
+    "format-ethernet": "", // Icon: nf-fa-ethernet
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+    "format-wifi": "{icon} {signalStrength:2}%",
+    "format-icons": [
+      "󰤯", // Icon: nf-md-wifi_strength_outline
+      "󰤟", // Icon: nf-md-wifi_strength_1
+      "󰤢", // Icon: nf-md-wifi_strength_2
+      "󰤥", // Icon: nf-md-wifi_strength_3
+      "󰤨" // Icon: nf-md-wifi_strength_4
+    ],
+    "tooltip-format-wifi": "{essid}: {ipaddr}"
+  },
+  "privacy": {
+    "icon-spacing": 12,
+    "icon-size": 14,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "interval": 5,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "", // Icon: nf-fa-temperature_empty
+      "", // Icon: nf-fa-temperature_quarter
+      "", // Icon: nf-fa-temperature_half
+      "", // Icon: nf-fa-temperature_three-quarters
+      "" // Icon: nf-fa-temperature_full
+    ],
+    "tooltip": true
+  },
+  "wireplumber": {
+    "format": "{icon} {volume:2}%",
+    "format-muted": "  --%", // Icon: nf-fa-volume_xmark
+    "format-icons": [
+      "", // Icon: nf-fa-volume_off
+      "", // Icon: nf-fa-volume_low
+      "" // Icon: nf-fa-volume_high
+    ]
+  }
+}
