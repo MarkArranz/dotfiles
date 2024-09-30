@@ -1,0 +1,2 @@
+# Automatically start Hyprland when logging in to tty1:
+[[ "$TTY" == /dev/tty1 ]] && exec Hyprland
