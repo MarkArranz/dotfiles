@@ -1,0 +1,6 @@
+[submodule "hyprpanel"]
+	path = hyprpanel/dot-config/ags
+	url = https://github.com/Jas-SinghFSU/HyprPanel.git
+[submodule "catppuccin-hyprland"]
+	path = hypr/dot-config/hypr/themes/catppuccin
+	url = https://github.com/catppuccin/hyprland.git
