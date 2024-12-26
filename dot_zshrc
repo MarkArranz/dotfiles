@@ -26,7 +26,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
-zstyle ':omz:update' mode reminder
+# Handle omz updates using chezmoi settings in .chezmoiexternal:
+zstyle ':omz:update' mode disabled
 
 plugins=(
   aliases
