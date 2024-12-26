@@ -1,0 +1,22 @@
+#######################
+# Environment Variables
+#######################
+
+# Set neovim as the default text editor:
+export EDITOR=/usr/bin/nvim
+
+# Make electron apps wayland aware:
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+# Requires oh-my-zsh:
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+
+#####################
+# PATH Configuration
+#
+# Manually added:
+#   go
+#####################
+typeset -U path
+path=(/usr/local/go/bin $path)
