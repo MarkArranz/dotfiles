@@ -1,3 +1,8 @@
+[".config/rofi/themes/spotlight-dark.rasi"]
+type = "file"
+url = "https://raw.githubusercontent.com/newmanls/rofi-themes-collection/refs/heads/master/themes/spotlight-dark.rasi"
+refreshPeriod = "672h"
+
 [".oh-my-zsh"]
 type = "archive"
 url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
