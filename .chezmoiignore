@@ -1,2 +1,4 @@
 # Oh My Zsh cache
 .oh-my-zsh/cache/
+
+**/lazy-lock.json
