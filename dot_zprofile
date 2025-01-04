@@ -1,2 +1,4 @@
 # Automatically start Hyprland when logging in to tty1:
-[[ "$TTY" == /dev/tty1 ]] && exec Hyprland
+if uwsm check may-start; then
+    exec uwsm start hyprland.desktop
+fi
