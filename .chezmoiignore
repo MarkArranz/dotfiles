@@ -6,4 +6,4 @@
 **/lazy-lock.json
 
 # Ignore externally modified files:
-#private_dot_config/hyprpanel/config.json
+hyprpanel.json
