@@ -22,6 +22,9 @@ return {
         neocmake = {
           capabilities = capabilities,
         },
+        jsonls = {
+          capabilities = capabilities,
+        },
       },
     },
   },
