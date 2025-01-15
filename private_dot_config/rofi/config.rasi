@@ -1,7 +1,7 @@
 @theme "themes/spotlight-dark.rasi"
 
 configuration {
-  modes: "combi";
+  modes: [combi,calc];
   combi-modes: [window,drun,filebrowser,run];
 
   display-window: "Go to:";
@@ -13,7 +13,6 @@ configuration {
   show-icons: true;
 
   terminal: "kitty";
-  ssh-client: "kitten ssh";
 
   filebrowser {
     sorting-method:    "name";
