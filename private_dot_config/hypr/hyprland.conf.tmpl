@@ -24,7 +24,11 @@ source = $HOME/.config/hypr/themes/catppuccin/themes/mocha.conf
 ################
 
 {{ if eq $chassisType "laptop" -}}
-  source = $HOME/.config/hypr/local/laptop.local.conf
+monitor=eDP-1, 2880x1800@59.99000, 0x0, 1.6
+{{- else if eq $chassisType "desktop" -}}
+monitor = , preferred, auto, 1
+{{- else -}}
+monitor = , preferred, auto, 1
 {{- end }}
 
 
@@ -80,24 +84,23 @@ general {
 decoration {
     rounding = 5
 
-    # Change transparency of focused and unfocused windows
-    # active_opacity = 1.0
-    # inactive_opacity = 1.0
-
     blur {
+        {{ if eq $chassisType "laptop" -}}
         # Laptop efficieny setting
         enabled = false
+        {{- end }}
         size = 3
         passes = 1
 
         vibrancy = 0.1696
     }
 
+    {{ if eq $chassisType "laptop" -}}
     shadow {
       # Laptop efficieny setting
       enabled = false
     }
-
+    {{- end }}
 }
 
 animations {
@@ -126,9 +129,12 @@ master {
 
 misc { 
     disable_hyprland_logo = true
+
+    {{ if eq $chassisType "laptop" -}}
     # Laptop efficieny setting - lower the amount of sent frames when nothing is happening
     # on-screen:
     vfr = true
+    {{- end }}
 }
 
 
@@ -148,8 +154,8 @@ input {
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
     touchpad {
-        natural_scroll = true
-        scroll_factor = 0.8
+      natural_scroll = true
+      scroll_factor = 0.8
     }
 }
 
