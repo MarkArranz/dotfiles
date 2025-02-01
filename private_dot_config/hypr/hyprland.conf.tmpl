@@ -26,7 +26,9 @@ source = $HOME/.config/hypr/themes/catppuccin/themes/mocha.conf
 {{ if eq $chassisType "laptop" -}}
 monitor=eDP-1, 2880x1800@59.99000, 0x0, 1.6
 {{- else if eq $chassisType "desktop" -}}
-monitor = , preferred, auto, 1
+monitor = DP-2, 3840x1600@174.97, 0x0, 1
+monitor = DP-1, 1920x1080@60.00, 0x-1080, 1
+monitor = HDMI-A-1, 1920x1080@60.00, 1920x-1080, 1
 {{- else -}}
 monitor = , preferred, auto, 1
 {{- end }}
@@ -153,10 +155,12 @@ input {
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
+    {{ if eq $chassisType "laptop" -}}
     touchpad {
       natural_scroll = true
       scroll_factor = 0.8
     }
+    {{- end }}
 }
 
 gestures {
@@ -302,3 +306,12 @@ windowrulev2 = size 622 652,class:(clipse) # set the size of the window as neces
 # Bitwarden:
 windowrulev2 = float,class:(Bitwarden)
 windowrulev2 = size 900 600,class:(Bitwarden) # set the size of the window as necessary
+
+{{ if eq $chassisType "desktop" -}}
+# Bind default workspaces to monitors:
+workspace = 1, monitor:DP-2, default:true
+workspace = 2, monitor:DP-1, default:true
+workspace = 3, monitor:HDMI-A-1, default:true
+
+exec-once = hyprctl dispatch focusmonitor DP-2
+{{- end }}
