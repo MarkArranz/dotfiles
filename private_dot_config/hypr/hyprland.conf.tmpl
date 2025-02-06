@@ -26,9 +26,9 @@ source = $HOME/.config/hypr/themes/catppuccin/themes/mocha.conf
 {{ if eq $chassisType "laptop" -}}
 monitor=eDP-1, 2880x1800@59.99000, 0x0, 1.6
 {{- else if eq $chassisType "desktop" -}}
-monitor = DP-2, 3840x1600@174.97, 0x0, 1
-monitor = DP-1, 1920x1080@60.00, 0x-1080, 1
-monitor = HDMI-A-1, 1920x1080@60.00, 1920x-1080, 1
+monitor = DP-1,     1920x1080@60.00,  0x0,    1
+monitor = HDMI-A-1, 1920x1080@60.00,  1920x0, 1
+monitor = DP-2,     3840x1600@174.97, 0x1080, 1
 {{- else -}}
 monitor = , preferred, auto, 1
 {{- end }}
