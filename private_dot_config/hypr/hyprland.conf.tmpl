@@ -117,7 +117,7 @@ decoration {
         vibrancy = 0.1696
     }
 
-    {{- if eq $chassisType "laptop" -}}
+    {{ if eq $chassisType "laptop" -}}
     shadow {
       # Laptop efficieny setting
       enabled = false
@@ -175,7 +175,7 @@ input {
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
-    {{- if eq $chassisType "laptop" -}}
+    {{ if eq $chassisType "laptop" -}}
     touchpad {
       natural_scroll  = true
       scroll_factor   = 0.8
@@ -183,7 +183,7 @@ input {
     {{- end }}
 }
 
-{{- if eq $chassisType "laptop" -}}
+{{ if eq $chassisType "laptop" -}}
 gestures {
     workspace_swipe = true
     workspace_swipe_fingers = 4
