@@ -20,3 +20,4 @@ export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 #####################
 typeset -U path
 path=(/usr/local/go/bin $path)
+. "$HOME/.cargo/env"
