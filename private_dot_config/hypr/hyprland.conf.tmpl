@@ -363,6 +363,10 @@ exec-once = hyprctl dispatch focusmonitor DP-2
 windowrulev2 = float,class:(yad)
 
 # Rocket League:
-windowrulev2 = monitor DP-2,initialTitle:(^Rocket League)
-windowrulev2 = immediate,initialTitle:(^Rocket League)
+windowrulev2 = monitor DP-2,title:(Rocket League)(.*)
+windowrulev2 = immediate,title:(Rocket League)(.*)
+
+# BakkesMod:
+windowrulev2 = monitor DP-1,initialTitle:(BakkesModInjectorCpp)(.*)
+windowrulev2 = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
 {{- end }}
