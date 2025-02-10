@@ -350,7 +350,7 @@ windowrulev2 = size 622 652,class:(clipse) # set the size of the window as neces
 windowrulev2 = float,class:(Bitwarden)
 windowrulev2 = size 900 600,class:(Bitwarden) # set the size of the window as necessary
 
-{{- if eq $chassisType "desktop" -}}
+{{ if eq $chassisType "desktop" -}}
 # Bind default workspaces to monitors:
 workspace = 1, monitor:DP-2, default:true
 workspace = 2, monitor:DP-1, default:true
@@ -367,6 +367,7 @@ windowrulev2 = monitor DP-2,title:(Rocket League)(.*)
 windowrulev2 = immediate,title:(Rocket League)(.*)
 
 # BakkesMod:
+windowrulev2 = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
 windowrulev2 = monitor DP-1,initialTitle:(BakkesModInjectorCpp)(.*)
 windowrulev2 = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
 {{- end }}
