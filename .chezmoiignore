@@ -1,9 +1,12 @@
+# Externally modified config files:
+externally_modified/
+
 # Oh My Zsh cache
 .oh-my-zsh/cache/
 .oh-my-zsh/**/*.zwc
 
-# Ignore lock files:
-**/lazy-lock.json
+# Lazyvim files:
+.config/nvim/lazy-lock.json
+.config/nvim/LICENSE
+.config/nvim/README.md
 
-# Ignore externally modified files:
-hyprpanel.json
