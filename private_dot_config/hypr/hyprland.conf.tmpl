@@ -290,7 +290,7 @@ bindl = , XF86AudioPause, exec, playerctl play-pause
 bindl = , XF86AudioNext,  exec, playerctl next
 bindl = , XF86AudioPrev,  exec, playerctl previous
 
-{{ if eq $chassisType "laptop" -}}
+{{ if eq .chassisType "laptop" -}}
 bindlt = , XF86PowerOff, exec, loginctl lock-session
 {{- end }}
 
