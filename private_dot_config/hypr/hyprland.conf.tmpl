@@ -15,9 +15,13 @@ monitor=eDP-1, 2880x1800@59.99000, 0x0, 1.6
 
 {{- else if eq .chassisType "desktop" -}}
 
-monitor = DP-1,     1920x1080@60.00,  0x0,    1
-monitor = HDMI-A-1, 1920x1080@60.00,  1920x0, 1
-monitor = DP-2,     3840x1600@174.97, 0x1080, 1
+$mainMonitor = DP-2
+$monitor2 = DP-1
+$monitor3 = HDMI-A-1
+
+monitor = $monitor2,    1920x1080@60.00,  0x0,    1
+monitor = $monitor3,    1920x1080@60.00,  1920x0, 1
+monitor = $mainMonitor, 3840x1600@174.97, 0x1080, 1
 
 {{- else -}}
 
@@ -172,6 +176,13 @@ input {
 gestures {
     workspace_swipe = true
     workspace_swipe_fingers = 4
+}
+{{- end }}
+
+{{ if eq .chassisType "desktop" -}}
+cursor {
+  no_hardware_cursors = 1
+  default_monitor = $mainMonitor
 }
 {{- end }}
 
@@ -337,22 +348,19 @@ windowrulev2 = size 900 600,class:(Bitwarden) # set the size of the window as ne
 
 {{ if eq .chassisType "desktop" -}}
 # Bind default workspaces to monitors:
-workspace = 1, monitor:DP-2, default:true
-workspace = 2, monitor:DP-1, default:true
-workspace = 3, monitor:HDMI-A-1, default:true
-
-# Focus on main monitor:
-exec-once = hyprctl dispatch focusmonitor DP-2
+workspace = 1, monitor:$mainMonitor, default:true
+workspace = 2, monitor:$monitor2, default:true
+workspace = 3, monitor:$monitor3, default:true
 
 # Steam Tinker Launch:
 windowrulev2 = float,class:(yad)
 
 # Rocket League:
-windowrulev2 = monitor DP-2,title:(Rocket League)(.*)
+windowrulev2 = monitor $mainMonitor,title:(Rocket League)(.*)
 windowrulev2 = immediate,title:(Rocket League)(.*)
 
 # BakkesMod:
 windowrulev2 = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
-windowrulev2 = monitor DP-1,initialTitle:(BakkesModInjectorCpp)(.*)
+windowrulev2 = monitor $monitor2,initialTitle:(BakkesModInjectorCpp)(.*)
 windowrulev2 = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
 {{- end }}
