@@ -9,6 +9,23 @@
   "bar.layouts": {
     "*": {
       "left": [
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "clock"
+      ],
+      "right": [
+        "media",
+        "volume",
+        "hypridle",
+        "hyprsunset",
+        "systray",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
         "dashboard",
         "workspaces",
         "windowtitle"
@@ -21,7 +38,6 @@
         "volume",
         "bluetooth",
         "network",
-        "battery",
         "hypridle",
         "hyprsunset",
         "systray",
