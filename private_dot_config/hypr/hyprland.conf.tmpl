@@ -269,30 +269,34 @@ bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
 ## SCREEN BRIGHTNESS ##
-binde = , XF86MonBrightnessUp,    exec, brightnessctl set +5%
-binde = , XF86MonBrightnessDown,  exec, brightnessctl set 5%-
+bindle = , XF86MonBrightnessUp,    exec, brightnessctl set +5%
+bindle = , XF86MonBrightnessDown,  exec, brightnessctl set 5%-
 
-binde = SHIFT, XF86MonBrightnessUp,   exec, brightnessctl set +1%
-binde = SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 1%-
+bindle = SHIFT, XF86MonBrightnessUp,   exec, brightnessctl set +1%
+bindle = SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 1%-
 
 ## KEYBOARD BRIGHTNESS ##
-binde = , XF86KbdBrightnessUp,    exec, brightnessctl --device='smc::kbd_backlight' set +10%
-binde = , XF86KbdBrightnessDown,  exec, brightnessctl --device='smc::kbd_backlight' set 10%-
+bindle = , XF86KbdBrightnessUp,    exec, brightnessctl --device='smc::kbd_backlight' set +10%
+bindle = , XF86KbdBrightnessDown,  exec, brightnessctl --device='smc::kbd_backlight' set 10%-
 
-binde = SHIFT, XF86KbdBrightnessUp,   exec, brightnessctl --device='smc::kbd_backlight' set +5%
-binde = SHIFT, XF86KbdBrightnessDown, exec, brightnessctl --device='smc::kbd_backlight' set 5%-
+bindle = SHIFT, XF86KbdBrightnessUp,   exec, brightnessctl --device='smc::kbd_backlight' set +5%
+bindle = SHIFT, XF86KbdBrightnessDown, exec, brightnessctl --device='smc::kbd_backlight' set 5%-
 
 ## VOLUME AND MEDIA CONTROL ##
-binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-binde = , XF86AudioMute,        exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindle = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindle = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
-binde = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindl = ,      XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindl = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-binde = , XF86AudioPlay,  exec, playerctl play-pause
-binde = , XF86AudioPause, exec, playerctl play-pause
-binde = , XF86AudioNext,  exec, playerctl next
-binde = , XF86AudioPrev,  exec, playerctl previous
+bindl = , XF86AudioPlay,  exec, playerctl play-pause
+bindl = , XF86AudioPause, exec, playerctl play-pause
+bindl = , XF86AudioNext,  exec, playerctl next
+bindl = , XF86AudioPrev,  exec, playerctl previous
+
+{{ if eq $chassisType "laptop" -}}
+bindlt = , XF86PowerOff, exec, loginctl lock-session
+{{- end }}
 
 ## SCREENSHOTS ##
 
@@ -344,11 +348,11 @@ windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 
 # Clipse:
 windowrulev2 = float,class:(clipse) # ensure you have a floating window class set if you want this behavior
-windowrulev2 = size 622 652,class:(clipse) # set the size of the window as necessary
+windowrulev2 = size 622 652,class:(clipse)
 
 # Bitwarden:
 windowrulev2 = float,class:(Bitwarden)
-windowrulev2 = size 900 600,class:(Bitwarden) # set the size of the window as necessary
+windowrulev2 = size 900 600,class:(Bitwarden)
 
 {{ if eq $chassisType "desktop" -}}
 # Bind default workspaces to monitors:
