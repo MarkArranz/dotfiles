@@ -1,6 +1,10 @@
 # Externally modified config files:
 externally_modified/
 
-# Oh My Zsh cache
+# Oh My Zsh cache:
 .oh-my-zsh/cache/
 .oh-my-zsh/**/*.zwc
+
+# vim-kitty-navigator files:
+.config/kitty/get_layout.py
+.config/kitty/pass_keys.py
