@@ -8,3 +8,14 @@ externally_modified/
 # vim-kitty-navigator files:
 .config/kitty/get_layout.py
 .config/kitty/pass_keys.py
+
+{{ if ne .chezmoi.os "linux" -}}
+
+# Ignore linux specific configs:
+.config/electron-flags.conf
+.config/hypr/**
+.config/hyprpanel/**
+.config/rofi/**
+.config/uwsm/**
+
+{{- end }}
