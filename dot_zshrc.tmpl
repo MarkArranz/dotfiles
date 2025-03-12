@@ -10,17 +10,6 @@ fi
 # OH-MY-ZSH
 ###########
 
-# Install Oh-My-Zsh if it is not present on the system:
-if [[ ! -d "${ZSH:-$HOME/.oh-my-zsh}" ]]; then
-  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-# Install powerlevel10k if it is not on the system:
-if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-    "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-fi
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # _ and - will be interchangeable.
@@ -53,6 +42,8 @@ plugins=(
 # Load node-version-manager:
 [[ ! -f /usr/share/nvm/init-nvm.sh ]] || source /usr/share/nvm/init-nvm.sh
 
+{{ if eq .chezmoi.os "linux" -}}
+
 ## START: HYPRPANEL DEPENDENCIES
 # bun completions
 [ -s "/home/mark/.bun/_bun" ] && source "/home/mark/.bun/_bun"
@@ -61,6 +52,8 @@ plugins=(
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 ## END: HYPRPANEL DEPENDENCIES
+
+{{- end }}
 
 #########
 # ALIASES
@@ -72,24 +65,15 @@ alias ls=eza
 # Find where aliases are declared:
 alias which-alias="PS4='+%x:%I>' zsh -i -x -c '' |& grep "
 
-# Update p10k:
-alias p10k-update="git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull"
-
 # Use kitten ssh:
 alias s="kitten ssh"
 
 # Use kitty for git diff
 alias kdiff="git difftool --no-symlinks --dir-diff"
 
+{{ if eq .chezmoi.os "linux" -}}
+
 # Edit hyprland conf file
 alias hyprconf="nvim ~/.config/hypr/hyprland.conf"
 
-# Edit Waybar conf file
-alias wayconf="nvim ~/.config/waybar/"
-
-# waybar Reload
-alias wbreload="killall -SIGUSR2 waybar"
-
-# Alternate nvim:
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
-
+{{- end }}
