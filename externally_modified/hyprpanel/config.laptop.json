@@ -415,5 +415,6 @@
   "theme.osd.muted_zero": false,
   "theme.osd.orientation": "horizontal",
   "bar.workspaces.show_numbered": true,
-  "menus.dashboard.powermenu.logout": "loginctl terminate-user \"\""
+  "menus.dashboard.powermenu.logout": "loginctl terminate-user \"\"",
+  "bar.customModules.updates.leftClick": "kitty -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch"
 }
