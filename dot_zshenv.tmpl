@@ -15,9 +15,6 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 # Set neovim as the default text editor:
 export EDITOR=/opt/homebrew/bin/nvim
 
-# Setup pyenv:
-export PYENV_ROOT="$HOME/.pyenv"
-
 {{- end }}
 
 # Requires oh-my-zsh:
@@ -27,18 +24,3 @@ export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 # Enable bitwarden ssh agent:
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 
-
-#####################
-# PATH Configuration
-#
-# Manually added:
-#   go
-#   rust
-#####################
-
-# Go:
-typeset -U path
-path=(/usr/local/go/bin $path)
-
-# Rust:
-. "$HOME/.cargo/env"

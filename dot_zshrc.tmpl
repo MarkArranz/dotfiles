@@ -32,15 +32,18 @@ plugins=(
 # SOURCES
 #########
 
-# Load oh-my-zsh
+# oh-my-zsh:
 [[ ! -f  ~/.oh-my-zsh/oh-my-zsh.sh ]] || source $ZSH/oh-my-zsh.sh
 
-# Load powerlevel10k
+# powerlevel10k:
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load node-version-manager:
+# node-version-manager:
 [[ ! -f /usr/share/nvm/init-nvm.sh ]] || source /usr/share/nvm/init-nvm.sh
+
+# rustup:
+. "$HOME/.cargo/env"
 
 {{ if eq .chezmoi.os "linux" -}}
 
@@ -53,12 +56,16 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 ## END: HYPRPANEL DEPENDENCIES
 
+# go:
+export PATH="$PATH:/usr/local/go/bin"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 
-# Setup homebrew:
+# homebrew:
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Setup pyenv:
+# pyenv:
+export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 
