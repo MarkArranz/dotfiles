@@ -45,15 +45,25 @@ plugins=(
 {{ if eq .chezmoi.os "linux" -}}
 
 ## START: HYPRPANEL DEPENDENCIES
-# bun completions
+# bun completions:
 [ -s "/home/mark/.bun/_bun" ] && source "/home/mark/.bun/_bun"
 
-# bun
+# bun:
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 ## END: HYPRPANEL DEPENDENCIES
 
+{{ else if eq .chezmoi.os "darwin" -}}
+
+# Setup homebrew:
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Setup pyenv:
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 {{- end }}
+
 
 #########
 # ALIASES

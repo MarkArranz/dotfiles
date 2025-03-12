@@ -10,6 +10,14 @@ export EDITOR=/usr/bin/nvim
 # Make electron apps wayland aware:
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
+{{ else if eq .chezmoi.os "darwin" -}}
+
+# Set neovim as the default text editor:
+export EDITOR=/opt/homebrew/bin/nvim
+
+# Setup pyenv:
+export PYENV_ROOT="$HOME/.pyenv"
+
 {{- end }}
 
 # Requires oh-my-zsh:
