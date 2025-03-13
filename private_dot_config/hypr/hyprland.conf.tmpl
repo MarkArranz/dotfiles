@@ -366,7 +366,10 @@ windowrulev2 = monitor $mainMonitor,title:(Rocket League)(.*)
 windowrulev2 = immediate,title:(Rocket League)(.*)
 
 # BakkesMod:
-windowrulev2 = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
 windowrulev2 = monitor $monitor2,initialTitle:(BakkesModInjectorCpp)(.*)
 windowrulev2 = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
+windowrulev2 = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
+
+# WebCord:
+windowrulev2 = monitor $monitor2,class:(WebCord)
 {{- end }}
