@@ -20,10 +20,12 @@ zstyle ':omz:update' mode disabled
 
 plugins=(
   aliases
-  archlinux
+  aws
   docker
   docker-compose
+  dotnet
   git
+  rust
   zsh-syntax-highlighting
 )
 
@@ -37,7 +39,6 @@ plugins=(
 # powerlevel10k:
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 # rustup:
 . "$HOME/.cargo/env"
