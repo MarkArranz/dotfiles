@@ -10,7 +10,11 @@
     "2": {
       "left": [
         "dashboard",
-        "windowtitle"
+        "windowtitle",
+        "cpu",
+        "ram",
+        "storage",
+        "netstat"
       ],
       "middle": [
         "workspaces"
@@ -31,15 +35,15 @@
     },
     "*": {
       "left": [
-        "windowtitle"
+        "cpu",
+        "ram",
+        "storage",
+        "netstat"
       ],
       "middle": [
         "workspaces"
       ],
       "right": [
-        "media",
-        "microphone",
-        "volume",
         "clock",
         "notifications"
       ]
@@ -450,5 +454,9 @@
   "menus.dashboard.stats.enable_gpu": false,
   "bar.customModules.microphone.label": false,
   "bar.customModules.updates.autoHide": true,
-  "bar.customModules.updates.padZero": false
+  "bar.customModules.updates.padZero": false,
+  "bar.customModules.netstat.dynamicIcon": true,
+  "bar.customModules.netstat.networkInterface": "enp4s0",
+  "bar.workspaces.monitorSpecific": true,
+  "bar.workspaces.showAllActive": true
 }
