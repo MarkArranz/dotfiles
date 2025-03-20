@@ -1,7 +1,5 @@
 # vim:fileencoding=utf-8:foldmethod=marker:ft=kitty
 
-font_size 12.0
-
 show_hyperlink_targets yes
 underline_hyperlinks always
 
@@ -20,18 +18,21 @@ map cmd+enter       new_window_with_cwd
 map kitty_mod+alt+enter new_window
 map cmd+alt+enter       new_window
 
-# BEGIN_VIM_KITTY_NAVIGATOR
-allow_remote_control yes
-
 {{ if eq .chezmoi.os "linux" -}}
 
+font_size 12.0
 listen_on unix:@mykitty
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
+font_size 14.0
 listen_on unix:/tmp/mykitty
 
 {{- end }}
+
+
+# BEGIN_VIM_KITTY_NAVIGATOR
+allow_remote_control yes
 
 map ctrl+j kitten pass_keys.py bottom ctrl+j
 map ctrl+k kitten pass_keys.py top    ctrl+k
