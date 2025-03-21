@@ -35,6 +35,7 @@
     },
     "*": {
       "left": [
+        "dashboard",
         "cpu",
         "ram",
         "storage",
@@ -44,6 +45,8 @@
         "workspaces"
       ],
       "right": [
+        "microphone",
+        "volume",
         "clock",
         "notifications"
       ]
