@@ -18,4 +18,9 @@ externally_modified/
 .config/rofi/**
 .config/uwsm/**
 
+{{ else if ne .chezmoi.os "darwin" -}}
+
+# Ignore macos specific configs:
+.config/aerospace/aerospace.toml
+
 {{- end }}
