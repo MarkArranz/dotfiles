@@ -79,7 +79,7 @@ general {
     allow_tearing = true
     {{- end }}
 
-    border_size       = 5
+    border_size       = 3
     resize_on_border  = true
 
     col.active_border   = $pink $sky 45deg
@@ -342,15 +342,15 @@ bind = CTRL,  Print, exec, grimblast edit area
 ### WINDOW AND WORKSPACE RULES ###
 ##################################
 
-windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
+windowrule = suppressevent maximize, class:.* # You'll probably like this.
 
 # Clipse:
-windowrulev2 = float,class:(clipse) # ensure you have a floating window class set if you want this behavior
-windowrulev2 = size 622 652,class:(clipse)
+windowrule = float,class:(clipse) # ensure you have a floating window class set if you want this behavior
+windowrule = size 622 652,class:(clipse)
 
 # Bitwarden:
-windowrulev2 = float,class:(Bitwarden)
-windowrulev2 = size 900 600,class:(Bitwarden)
+windowrule = float,class:(Bitwarden)
+windowrule = size 900 600,class:(Bitwarden)
 
 {{ if eq .chassisType "desktop" -}}
 # Bind default workspaces to monitors:
@@ -359,20 +359,20 @@ workspace = 2, monitor:$monitor2, default:true
 workspace = 3, monitor:$monitor3, default:true
 
 # Steam Tinker Launch:
-windowrulev2 = float,class:(yad)
+windowrule = float,class:(yad)
 
 # Steam:
-windowrulev2 = monitor $mainMonitor,class:(steam)
+windowrule = monitor $mainMonitor,class:(steam)
 
 # Rocket League:
-windowrulev2 = monitor $mainMonitor,title:(Rocket League)(.*)
-windowrulev2 = immediate,title:(Rocket League)(.*)
+windowrule = monitor $mainMonitor,title:(Rocket League)(.*)
+windowrule = immediate,title:(Rocket League)(.*)
 
 # BakkesMod:
-windowrulev2 = monitor $monitor2,initialTitle:(BakkesModInjectorCpp)(.*)
-windowrulev2 = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
-windowrulev2 = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
+windowrule = monitor $monitor2,initialTitle:(BakkesModInjectorCpp)(.*)
+windowrule = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
+windowrule = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
 
 # WebCord:
-windowrulev2 = monitor $monitor2,class:(WebCord)
+windowrule = monitor $monitor2,class:(WebCord)
 {{- end }}
