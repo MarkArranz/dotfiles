@@ -14,6 +14,10 @@ sudo yabai --load-sa
 yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --layout bsp'
 yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
 
+# Finder workaround
+yabai -m signal --add app='^Finder$' event=window_created action='yabai -m space --layout bsp'
+yabai -m signal --add app='^Finder$' event=window_destroyed action='yabai -m space --layout bsp'
+
 ## RULES ##
 # float system preferences
 yabai -m rule --add app="^System Settings$" manage=off
