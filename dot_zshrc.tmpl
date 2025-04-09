@@ -27,6 +27,9 @@ plugins=(
   git
   rust
   zsh-syntax-highlighting
+{{ if eq .chezmoi.os "darwin" -}}
+  brew
+{{ end -}}
 )
 
 #########
