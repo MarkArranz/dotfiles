@@ -21,15 +21,15 @@ zstyle ':omz:update' mode disabled
 plugins=(
   aliases
   aws
+{{ if eq .chezmoi.os "darwin" -}}
+  brew
+{{ end -}}
   docker
   docker-compose
   dotnet
   git
   rust
   zsh-syntax-highlighting
-{{ if eq .chezmoi.os "darwin" -}}
-  brew
-{{ end -}}
 )
 
 #########
@@ -65,12 +65,13 @@ export PATH="$PATH:/usr/local/go/bin"
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
-# homebrew:
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # uv & uvx:
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+
+# go:
+export PATH="$PATH:$HOME/go/bin"
 
 # node-version-manager:
 export NVM_DIR="$HOME/.nvm"

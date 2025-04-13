@@ -5,4 +5,9 @@ if uwsm check may-start; then
     exec uwsm start hyprland.desktop
 fi
 
+{{ else if eq .chezmoi.os "darwin" -}}
+
+# Enable homebrew completions:
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 {{- end }}
