@@ -29,15 +29,15 @@ alt - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # make floating window fill screen
 shift + alt - f : yabai -m window --toggle zoom-fullscreen
 
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + alt - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
-
 # fast focus desktop
 cmd + alt - h : yabai -m space --focus prev
 cmd + alt - l : yabai -m space --focus next
+
+# create new desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+cmd + shift + alt - n : yabai -m space --create && \
+                        index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                        yabai -m window --space "${index}" && \
+                        yabai -m space --focus "${index}"
 
 # send window to desktop and follow focus
 cmd + shift + alt - h : yabai -m window --space prev; yabai -m space --focus prev
