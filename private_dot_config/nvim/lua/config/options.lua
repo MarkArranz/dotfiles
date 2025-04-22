@@ -11,6 +11,6 @@ vim.g.lazyvim_python_ruff = "ruff"
 -- .tmpl filetype
 vim.filetype.add({
 	extension = {
-		tmpl = "html",
+		gotmpl = "gotmpl",
 	},
 })

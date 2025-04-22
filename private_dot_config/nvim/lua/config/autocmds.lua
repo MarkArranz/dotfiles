@@ -6,3 +6,12 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Add HTML completion to gotmpl files:
+vim.api.nvim_create_autocmd("BufReadPost", {
+	group = vim.api.nvim_create_augroup("gotmpl", { clear = true }),
+	pattern = { "*.gotmpl" },
+	callback = function()
+		require("luasnip").filetype_set("gotmpl", { "html", "go" })
+	end,
+})
