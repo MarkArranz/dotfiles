@@ -7,3 +7,10 @@ vim.opt.colorcolumn = "+1"
 -- Python Extras:
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
+
+-- .tmpl filetype
+vim.filetype.add({
+	extension = {
+		tmpl = "html",
+	},
+})
