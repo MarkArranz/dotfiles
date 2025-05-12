@@ -19,19 +19,23 @@ HYPHEN_INSENSITIVE="true"
 zstyle ':omz:update' mode disabled
 
 plugins=(
-aliases
-aws
-{{ if eq .chezmoi.os "darwin" -}}
-brew
-{{ end -}}
-direnv
-docker
-docker-compose
-dotnet
-git
-rust
-zsh-syntax-highlighting
+  aliases
+  aws
+  {{ if eq .chezmoi.os "darwin" -}}
+  brew
+  {{ end -}}
+  direnv
+  docker
+  docker-compose
+  dotnet
+  git
+  rust
+  zsh-syntax-highlighting
 )
+
+# zsh-completions (optimized approach)
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
 
 #########
 # SOURCES
