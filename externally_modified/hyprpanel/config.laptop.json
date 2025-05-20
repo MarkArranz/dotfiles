@@ -11,7 +11,10 @@
       "left": [
         "dashboard",
         "workspaces",
-        "windowtitle"
+        "cpu",
+        "ram",
+        "netstat",
+        "storage"
       ],
       "middle": [
         "clock"
@@ -451,5 +454,6 @@
   "theme.bar.buttons.modules.microphone.text": "#a6e3a1",
   "theme.bar.buttons.modules.microphone.background": "#242438",
   "theme.bar.buttons.modules.microphone.icon": "#a6e3a1",
-  "theme.bar.buttons.modules.microphone.icon_background": "#242438"
+  "theme.bar.buttons.modules.microphone.icon_background": "#242438",
+  "menus.clock.weather.key": "REDACTED"
 }
