@@ -2,7 +2,7 @@
 # APPLICATION COMMANDS #
 # #################### #
 
-cmd - return : kitty --single-instance
+cmd - return : kitty --single-instance -d ~
 cmd - b      : open -na Firefox
 cmd - e      : open -na Finder $HOME
 
