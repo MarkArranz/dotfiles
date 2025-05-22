@@ -1,40 +1,26 @@
 #!/usr/bin/env sh
 
-# ####### #
-# SIGNALS #
-# ####### #
+# ################## #
+# SCRIPTING ADDITION #
+# ################## #
 
-# Configure scripting addition:
 # for this to work you must configure sudo such that
 # it will be able to run the command without password
-#
-# see this wiki page for information:
-#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
-#
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-# MacOS native tabs workarounds:
-
-# Ghostty:
-yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --layout bsp'
-yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
-
-# Finder:
-yabai -m signal --add app='^Finder$' event=window_created action='yabai -m space --layout bsp'
-yabai -m signal --add app='^Finder$' event=window_destroyed action='yabai -m space --layout bsp'
+# ####### #
+# SIGNALS #
+# ####### #
 
 # ##### #
 # RULES #
 # ##### #
 
-# Float System Settings:
+# Always float:
 yabai -m rule --add app="^System Settings$" manage=off
-# Float Bitwarden:
 yabai -m rule --add app="^Bitwarden$" manage=off
-
-# Flash window on focus change:
-yabai -m signal --add label="flash_focus" event="window_focused" action="yabai -m window \$YABAI_WINDOW_ID --opacity 0.1 && sleep $(yabai -m config window_opacity_duration) && yabai -m window \$YABAI_WINDOW_ID --opacity 0.0"
+yabai -m rule --add app="^Finder$" manage=off
 
 # ############### #
 # GLOBAL SETTINGS #
@@ -44,8 +30,8 @@ yabai -m config \
   debug_output off \
   external_bar off:40:0 \
   menubar_opacity 1.0 \
-  mouse_follows_focus on \
-  focus_follows_mouse autofocus \
+  mouse_follows_focus off \
+  focus_follows_mouse off \
   display_arrangement_order default \
   window_origin_display default \
   window_placement second_child \
@@ -78,5 +64,3 @@ yabai -m config \
   right_padding 0 \
   window_gap 0 \
   auto_balance off
-
-echo "yabai configuration loaded.."
