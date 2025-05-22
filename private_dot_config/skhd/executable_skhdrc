@@ -77,9 +77,9 @@ cmd + shift - 9 : yabai -m window --space 9 --focus  || (yabai -m space --create
 cmd + shift - 0 : yabai -m window --space 10 --focus || (yabai -m space --create; yabai -m window --space last --focus)
 
 
-################################
-### BLACKLISTED APPLICATIONS ###
-################################
+# ######################## #
+# BLACKLISTED APPLICATIONS #
+# ######################## #
 
 .blacklist [
   "microsoft excel"
