@@ -16,11 +16,11 @@ monitor=eDP-1, 2880x1800@59.99000, 0x0, 1.5
 {{- else if eq .chassisType "desktop" -}}
 
 $mainMonitor = DP-2
-$monitor2 = DP-1
-$monitor3 = HDMI-A-1
-
-monitor = $monitor2,    1920x1080@60.00,  0x0,    1
-monitor = $monitor3,    1920x1080@60.00,  1920x0, 1
+# $monitor2 = DP-1
+# $monitor3 = HDMI-A-1
+#
+# monitor = $monitor2,    1920x1080@60.00,  0x0,    1
+# monitor = $monitor3,    1920x1080@60.00,  1920x0, 1
 monitor = $mainMonitor, 3840x1600@174.97, 0x1080, 1
 
 {{- else -}}
@@ -35,7 +35,7 @@ monitor = , preferred, auto, 1
 ### MY PROGRAMS ###
 ###################
 
-$terminal     = kitty --single-instance -d $HOME
+$terminal     = kitty --single-instance
 $fileManager  = nautilus
 $menu         = rofi -show combi
 $browser      = firefox
@@ -64,17 +64,17 @@ exec-once = uwsm app -- clipse -listen
 ### LOOK AND FEEL ###
 #####################
 
-general { 
+general {
     {{ if eq .chassisType "laptop" -}}
+
     gaps_in   = 0
     gaps_out  = 0
 
-    allow_tearing = false
     {{- else if eq .chassisType "desktop" -}}
+
     gaps_in   = 5
     gaps_out  = 5
 
-    allow_tearing = true
     {{- end }}
 
     border_size       = 3
@@ -94,17 +94,17 @@ decoration {
     rounding = 5
 
     blur {
-        {{ if eq .chassisType "laptop" -}}
+        {{- if eq .chassisType "laptop" -}}
         # Laptop efficieny setting
         enabled = false
-        {{- end -}}
+        {{- end }}
         size    = 3
         passes  = 1
 
         vibrancy = 0.1696
     }
 
-    {{ if eq .chassisType "laptop" -}}
+    {{- if eq .chassisType "laptop" -}}
     shadow {
       # Laptop efficieny setting
       enabled = false
@@ -136,16 +136,17 @@ master {
     new_status = master
 }
 
-misc { 
+misc {
     disable_hyprland_logo = true
-
-    {{- if eq .chassisType "laptop" -}}
-    # Laptop efficieny setting - lower the amount of sent frames when nothing is happening
-    # on-screen:
-    vfr = true
-    {{- end }}
 }
 
+render {
+  direct_scanout = 2
+}
+
+debug {
+  full_cm_proto = true
+}
 
 #############
 ### INPUT ###
@@ -162,7 +163,7 @@ input {
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
-    {{ if eq .chassisType "laptop" -}}
+    {{- if eq .chassisType "laptop" -}}
     touchpad {
       natural_scroll  = true
       scroll_factor   = 0.8
@@ -170,7 +171,7 @@ input {
     {{- end }}
 }
 
-{{ if eq .chassisType "laptop" -}}
+{{- if eq .chassisType "laptop" -}}
 gestures {
     workspace_swipe = true
     workspace_swipe_fingers = 4
@@ -290,7 +291,7 @@ bindl = , XF86AudioPause, exec, playerctl play-pause
 bindl = , XF86AudioNext,  exec, playerctl next
 bindl = , XF86AudioPrev,  exec, playerctl previous
 
-{{ if eq .chassisType "laptop" -}}
+{{- if eq .chassisType "laptop" -}}
 bindlt = , XF86PowerOff, exec, loginctl lock-session
 {{- end }}
 
@@ -353,8 +354,8 @@ windowrule = size 900 600,class:(Bitwarden)
 {{ if eq .chassisType "desktop" -}}
 # Bind default workspaces to monitors:
 workspace = 1, monitor:$mainMonitor, default:true
-workspace = 2, monitor:$monitor2, default:true
-workspace = 3, monitor:$monitor3, default:true
+# workspace = 2, monitor:$monitor2, default:true
+# workspace = 3, monitor:$monitor3, default:true
 
 # Steam Tinker Launch:
 windowrule = float,class:(yad)
@@ -364,13 +365,12 @@ windowrule = monitor $mainMonitor,class:(steam)
 
 # Rocket League:
 windowrule = monitor $mainMonitor,title:(Rocket League)(.*)
-windowrule = immediate,title:(Rocket League)(.*)
 
 # BakkesMod:
-windowrule = monitor $monitor2,initialTitle:(BakkesModInjectorCpp)(.*)
+# windowrule = monitor $monitor2,initialTitle:(BakkesModInjectorCpp)(.*)
 windowrule = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
 windowrule = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
 
 # WebCord:
-windowrule = monitor $monitor2,class:(WebCord)
+# windowrule = monitor $monitor2,class:(WebCord)
 {{- end }}
