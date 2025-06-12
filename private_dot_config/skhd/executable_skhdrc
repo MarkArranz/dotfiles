@@ -16,6 +16,8 @@ cmd + alt + ctrl - r : yabai --restart-service
 cmd + alt - tab : yabai -m space --focus recent
 cmd + alt - h   : yabai -m space --focus prev
 cmd + alt - l   : yabai -m space --focus next
+# Rotate window tree:
+cmd + alt - r : yabai -m space --rotate 270
 
 # Focus space with CMD + [0-9]:
 cmd - 1 : yabai -m space --focus 1
@@ -31,9 +33,6 @@ cmd - 9 : yabai -m space --focus 9  || (yabai -m space --create; yabai -m space 
 # Move space with CMD + SHIFT + ALT + [hl]:
 cmd + shift + alt - h : yabai -m space --move prev --focus mouse
 cmd + shift + alt - l : yabai -m space --move next --focus mouse
-
-# Rotate window tree:
-alt - l : yabai -m space --rotate 90
 
 
 # ############### #
