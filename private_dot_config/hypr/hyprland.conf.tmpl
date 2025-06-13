@@ -16,12 +16,12 @@ monitor=eDP-1, 2880x1800@59.99000, 0x0, 1.5
 {{- else if eq .chassisType "desktop" -}}
 
 $mainMonitor = DP-2
-# $monitor2 = DP-1
-# $monitor3 = HDMI-A-1
-#
-# monitor = $monitor2,    1920x1080@60.00,  0x0,    1
-# monitor = $monitor3,    1920x1080@60.00,  1920x0, 1
-monitor = $mainMonitor, 3840x1600@174.97, 0x1080, 1
+$monitor2 = DP-1
+$monitor3 = HDMI-A-1
+
+monitor = $mainMonitor, highrr,   0x1080, 1
+monitor = $monitor2,    highres,  0x0,    1
+monitor = $monitor3,    highres,  1920x0, 1
 
 {{- else -}}
 
@@ -105,10 +105,12 @@ decoration {
     }
 
     {{- if eq .chassisType "laptop" -}}
+
     shadow {
       # Laptop efficieny setting
       enabled = false
     }
+
     {{- end }}
 }
 
@@ -148,41 +150,43 @@ debug {
   full_cm_proto = true
 }
 
+
 #############
 ### INPUT ###
 #############
 
 input {
     kb_layout = us
-    kb_variant =
-    kb_model =
-    kb_options =
-    kb_rules =
 
     follow_mouse = 1
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
     {{- if eq .chassisType "laptop" -}}
+
     touchpad {
       natural_scroll  = true
       scroll_factor   = 0.8
     }
+
     {{- end }}
 }
 
 {{- if eq .chassisType "laptop" -}}
+
 gestures {
     workspace_swipe = true
     workspace_swipe_fingers = 4
 }
+
 {{- end }}
 
 {{ if eq .chassisType "desktop" -}}
+
 cursor {
-  no_hardware_cursors = 1
   default_monitor = $mainMonitor
 }
+
 {{- end }}
 
 
@@ -344,33 +348,36 @@ bind = CTRL,  Print, exec, grimblast edit area
 windowrule = suppressevent maximize, class:.* # You'll probably like this.
 
 # Clipse:
-windowrule = float,class:(clipse) # ensure you have a floating window class set if you want this behavior
-windowrule = size 622 652,class:(clipse)
+windowrule = float,        class:(clipse) # ensure you have a floating window class set if you want this behavior
+windowrule = size 622 652, class:(clipse)
 
 # Bitwarden:
-windowrule = float,class:(Bitwarden)
-windowrule = size 900 600,class:(Bitwarden)
+windowrule = float,        class:(Bitwarden)
+windowrule = size 900 600, class:(Bitwarden)
 
 {{ if eq .chassisType "desktop" -}}
+
 # Bind default workspaces to monitors:
 workspace = 1, monitor:$mainMonitor, default:true
-# workspace = 2, monitor:$monitor2, default:true
-# workspace = 3, monitor:$monitor3, default:true
+workspace = 2, monitor:$monitor2,    default:true
+workspace = 3, monitor:$monitor3,    default:true
 
 # Steam Tinker Launch:
-windowrule = float,class:(yad)
+windowrule = float, class:(yad) title:(SteamTinkerLaunch)(.*)
 
 # Steam:
-windowrule = monitor $mainMonitor,class:(steam)
+windowrule = monitor $mainMonitor,  class:(steam)
+windowrule = focusonactivate off,   class:(steam) title:(notificationtoasts)(.*)(desktop)
 
 # Rocket League:
-windowrule = monitor $mainMonitor,title:(Rocket League)(.*)
+windowrule = monitor $mainMonitor, title:(Rocket League)(.*)
 
 # BakkesMod:
-# windowrule = monitor $monitor2,initialTitle:(BakkesModInjectorCpp)(.*)
-windowrule = center 1, initialTitle:(BakkesModInjectorCpp)(.*)
-windowrule = noinitialfocus,initialTitle:(BakkesModInjectorCpp)(.*)
+windowrule = monitor $monitor2, initialTitle:(BakkesModInjectorCpp)(.*)
+windowrule = center 1,          initialTitle:(BakkesModInjectorCpp)(.*)
+windowrule = noinitialfocus,    initialTitle:(BakkesModInjectorCpp)(.*)
 
 # WebCord:
-# windowrule = monitor $monitor2,class:(WebCord)
+windowrule = monitor $monitor2, class:(WebCord)
+
 {{- end }}
