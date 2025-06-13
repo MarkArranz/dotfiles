@@ -47,6 +47,7 @@
       "right": [
         "microphone",
         "volume",
+        "systray",
         "clock",
         "notifications"
       ]
@@ -461,5 +462,11 @@
   "bar.customModules.netstat.dynamicIcon": true,
   "bar.customModules.netstat.networkInterface": "enp4s0",
   "bar.workspaces.monitorSpecific": true,
-  "bar.workspaces.showAllActive": true
+  "bar.workspaces.showAllActive": true,
+  "theme.bar.opacity": 100,
+  "theme.bar.buttons.opacity": 100,
+  "theme.bar.buttons.background_opacity": 50,
+  "bar.customModules.storage.paths": [
+    "/"
+  ]
 }
