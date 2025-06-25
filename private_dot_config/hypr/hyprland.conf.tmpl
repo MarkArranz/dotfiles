@@ -190,9 +190,9 @@ cursor {
 {{- end }}
 
 
-####################
-### KEYBINDINGSS ###
-####################
+###################
+### KEYBINDINGS ###
+###################
 
 $mainMod = SUPER
 
@@ -211,6 +211,8 @@ bind = $mainMod, b, exec, uwsm app -- $browser
 bind = $mainMod, q, killactive,
 # Exit session:
 bind = $mainMod, m, exec, uwsm stop
+# Lock screen:
+bind = $mainMod SHIFT, Escape, exec, hyprlock --immediate-render
 
 ## WINDOW & FOCUS CONTROLS ##
 bind = $mainMod, f, fullscreen,
