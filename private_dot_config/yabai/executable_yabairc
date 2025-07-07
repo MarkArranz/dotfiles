@@ -13,6 +13,8 @@ sudo yabai --load-sa
 # SIGNALS #
 # ####### #
 
+yabai -m signal --add event=space_changed action="sh ~/.config/yabai/scripts/clean_empty_spaces.sh"
+
 # ##### #
 # RULES #
 # ##### #
