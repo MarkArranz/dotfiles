@@ -51,6 +51,9 @@ autoload -U compinit && compinit
 # rustup:
 . "$HOME/.cargo/env"
 
+# Add .NET Core SDK tools
+export PATH="$PATH:$HOME/.dotnet/tools"
+
 {{ if eq .chezmoi.os "linux" -}}
 
 ## START: HYPRPANEL DEPENDENCIES
