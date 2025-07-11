@@ -15,16 +15,17 @@ externally_modified/
 # Ignore linux specific configs:
 .config/electron-flags.conf
 .config/spotify-launcher.conf
-.config/hypr/**
-.config/hyprpanel/**
-.config/rofi/**
-.config/uwsm/**
+.config/hypr/
+.config/hyprpanel/
+.config/rofi/
+.config/uwsm/
 
 {{ else if ne .chezmoi.os "darwin" -}}
 
 # Ignore macos specific configs:
-.config/aerospace/aerospace.toml
-.config/skhd/skhdrc
-.config/yabai/yabairc
+.config/aerospace/
+.config/sketchybar/
+.config/skhd/
+.config/yabai/
 
 {{- end }}
