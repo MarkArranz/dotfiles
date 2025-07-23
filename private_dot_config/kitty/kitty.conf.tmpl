@@ -1,55 +1,118 @@
 # vim:fileencoding=utf-8:foldmethod=marker:ft=kitty
 
+# ##### #
+# FONTS #
+# ##### #
+
+# BEGIN_KITTY_FONTS
+font_family      family='JetBrainsMono Nerd Font Mono' postscript_name=JetBrainsMonoNFM-Regular
+bold_font        family='JetBrainsMono Nerd Font Mono' style=Bold
+italic_font      family='JetBrainsMono Nerd Font Mono' style=Italic
+bold_italic_font family='JetBrainsMono Nerd Font Mono' style='Bold Italic'
+# END_KITTY_FONTS
+
+{{ if eq .chezmoi.os "linux" -}}
+font_size 12.0
+{{ else if eq .chezmoi.os "darwin" -}}
+font_size 14.0
+{{- end }}
+
+
+# ######################### #
+# TEXT CURSOR CUSTOMIZATION #
+# ######################### #
+
+
+# ########## #
+# SCROLLBACK #
+# ########## #
+
+
+# ##### #
+# MOUSE #
+# ##### #
+
 show_hyperlink_targets yes
 underline_hyperlinks always
-
 copy_on_select clipboard
+
+## MOUSE ACTIONS ##
+
+mouse_map right press ungrabbed mouse_select_command_output
+
+
+# ################## #
+# PERFORMANCE TUNING #
+# ################## #
+
+
+# ############# #
+# TERMINAL BELL #
+# ############# #
+
+
+# ############# #
+# WINDOW LAYOUT #
+# ############# #
+
+window_margin_width 1
+{{ if eq .chezmoi.os "linux" -}}
+hide_window_decorations yes
+{{ else if eq .chezmoi.os "darwin" -}}
+hide_window_decorations titlebar-only
+{{- end }}
+
+
+# ####### #
+# TAB BAR #
+# ####### #
 
 tab_bar_min_tabs 2
 tab_bar_style powerline
 tab_powerline_style angled
+tab_activity_symbol ...
 
-background_opacity 0.85
-dynamic_background_opacity yes
+# ############ #
+# COLOR SCHEME #
+# ############ #
 
-map kitty_mod+enter new_window_with_cwd
-map cmd+enter       new_window_with_cwd
-
-map kitty_mod+alt+enter new_window
-map cmd+alt+enter       new_window
-
-map kitty_mod+/ kitten keymap.py
-
-{{ if eq .chezmoi.os "linux" -}}
-
-font_size 12.0
-listen_on unix:@mykitty
-
-{{ else if eq .chezmoi.os "darwin" -}}
-
-font_size 14.0
-listen_on unix:/tmp/mykitty
-
-{{- end }}
-
-
-# BEGIN_VIM_KITTY_NAVIGATOR
-allow_remote_control yes
-
-map ctrl+j kitten pass_keys.py bottom ctrl+j
-map ctrl+k kitten pass_keys.py top    ctrl+k
-map ctrl+h kitten pass_keys.py left   ctrl+h
-map ctrl+l kitten pass_keys.py right  ctrl+l
-# END_VIM_KITTY_NAVIGATOR
+# background_opacity 0.85
+# dynamic_background_opacity yes
 
 # BEGIN_KITTY_THEME
 # Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
 
-# BEGIN_KITTY_FONTS
-font_family      family="JetBrainsMono Nerd Font"
-bold_font        family='JetBrainsMono Nerd Font' style=ExtraBold
-italic_font      family='JetBrainsMono Nerd Font' style='Light Italic'
-bold_italic_font family='JetBrainsMono Nerd Font' style='ExtraBold Italic'
-# END_KITTY_FONTS
+
+# ######## #
+# ADVANCED #
+# ######## #
+
+# Required for vim-kitty-navigator:
+allow_remote_control yes
+{{ if eq .chezmoi.os "linux" -}}
+listen_on unix:@mykitty
+{{ else if eq .chezmoi.os "darwin" -}}
+listen_on unix:/tmp/mykitty
+{{- end }}
+shell_integration no-cursor
+notify_on_cmd_finish invisible 10
+
+
+# ################## #
+# KEYBOARD SHORTCUTS #
+# ################## #
+
+# Swap new window keyboard shortcuts around:
+map kitty_mod+enter new_window_with_cwd
+map kitty_mod+alt+enter new_window
+
+# View all kitty keyboard shortcuts:
+map kitty_mod+/ kitten keymap.py
+
+# vim-kitty-navigator:
+map ctrl+j kitten pass_keys.py bottom ctrl+j
+map ctrl+k kitten pass_keys.py top    ctrl+k
+map ctrl+h kitten pass_keys.py left   ctrl+h
+map ctrl+l kitten pass_keys.py right  ctrl+l

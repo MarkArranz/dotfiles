@@ -51,6 +51,12 @@ autoload -U compinit && compinit
 # rustup:
 . "$HOME/.cargo/env"
 
+# Add .NET Core SDK tools
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+# go:
+export PATH="$PATH:$HOME/go/bin"
+
 {{ if eq .chezmoi.os "linux" -}}
 
 ## START: HYPRPANEL DEPENDENCIES
@@ -62,9 +68,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 ## END: HYPRPANEL DEPENDENCIES
 
-# go:
-export PATH="$PATH:/usr/local/go/bin"
-
 # node-version-manager:
 [[ ! -f /usr/share/nvm/init-nvm.sh ]] || source /usr/share/nvm/init-nvm.sh
 
@@ -75,14 +78,16 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 
-# go:
-export PATH="$PATH:$HOME/go/bin"
-
 # node-version-manager:
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 # This loads nvm bash_completion
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# have postgresql@17 first in PATH
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
 
 {{- end }}
 
