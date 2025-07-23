@@ -4,6 +4,7 @@ externally_modified/
 # Oh My Zsh cache:
 .oh-my-zsh/cache/
 .oh-my-zsh/**/*.zwc
+.oh-my-zsh/**/__pycache__/
 
 # vim-kitty-navigator files:
 .config/kitty/get_layout.py
@@ -13,16 +14,18 @@ externally_modified/
 
 # Ignore linux specific configs:
 .config/electron-flags.conf
-.config/hypr/**
-.config/hyprpanel/**
-.config/rofi/**
-.config/uwsm/**
+.config/spotify-launcher.conf
+.config/hypr/
+.config/hyprpanel/
+.config/rofi/
+.config/uwsm/
 
 {{ else if ne .chezmoi.os "darwin" -}}
 
 # Ignore macos specific configs:
-.config/aerospace/aerospace.toml
-.config/skhd/skhdrc
-.config/yabai/yabairc
+.config/aerospace/
+.config/sketchybar/
+.config/skhd/
+.config/yabai/
 
 {{- end }}
