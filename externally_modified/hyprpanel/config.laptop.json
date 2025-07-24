@@ -23,12 +23,10 @@
         "media",
         "volume",
         "bluetooth",
-        "network",
-        "battery",
         "hypridle",
         "hyprsunset",
         "systray",
-        "updates",
+        "battery",
         "notifications"
       ]
     }
@@ -455,5 +453,11 @@
   "theme.bar.buttons.modules.microphone.background": "#242438",
   "theme.bar.buttons.modules.microphone.icon": "#a6e3a1",
   "theme.bar.buttons.modules.microphone.icon_background": "#242438",
-  "menus.clock.weather.key": "REDACTED"
+  "menus.clock.weather.key": "REDACTED",
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "bar.autoHide": "fullscreen",
+  "theme.bar.border.location": "none",
+  "theme.bar.enableShadow": false
 }
