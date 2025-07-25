@@ -375,11 +375,12 @@ windowrule = focusonactivate off,   class:(steam) title:(notificationtoasts)(.*)
 windowrule = monitor $mainMonitor, title:(Rocket League)(.*)
 
 # BakkesMod:
-windowrule = monitor $monitor2, initialTitle:(BakkesModInjectorCpp)(.*)
-windowrule = center 1,          initialTitle:(BakkesModInjectorCpp)(.*)
-windowrule = noinitialfocus,    initialTitle:(BakkesModInjectorCpp)(.*)
+windowrule = noinitialfocus,    initialTitle:BakkesModInjectorCpp
+windowrule = monitor $monitor2, initialTitle:BakkesModInjectorCpp
+windowrule = center 1,          initialTitle:BakkesModInjectorCpp
 
-# WebCord:
+# Discord/WebCord:
 windowrule = monitor $monitor2, class:(WebCord)
+windowrule = monitor $monitor2, class:(com.discordapp.Discord)
 
 {{- end }}
