@@ -468,5 +468,6 @@
   "theme.bar.buttons.background_opacity": 50,
   "bar.customModules.storage.paths": [
     "/"
-  ]
+  ],
+  "bar.clock.format": "%a, %b %d    %I:%M:%S %p"
 }
