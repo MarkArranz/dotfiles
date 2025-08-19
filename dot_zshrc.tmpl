@@ -75,6 +75,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
+# Use python installed from website:
+export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:${PATH}"
+
 # uv & uvx:
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(uv generate-shell-completion zsh)"
