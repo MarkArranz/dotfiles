@@ -16,9 +16,7 @@
         "netstat",
         "storage"
       ],
-      "middle": [
-        "clock"
-      ],
+      "middle": [],
       "right": [
         "media",
         "volume",
@@ -27,7 +25,8 @@
         "hyprsunset",
         "systray",
         "battery",
-        "notifications"
+        "notifications",
+        "clock"
       ]
     }
   },
@@ -35,15 +34,15 @@
   "bar.network.showWifiInfo": false,
   "bar.notifications.show_total": false,
   "bar.volume.label": false,
-  "bar.workspaces.workspaces": 3,
+  "bar.workspaces.workspaces": 1,
   "hyprpanel.restartCommand": "hyprpanel -q; uwsm app -- hyprpanel",
   "menus.bluetooth.showBattery": true,
   "menus.clock.weather.location": "Los Angeles",
   "menus.dashboard.shortcuts.left.shortcut1.command": "firefox",
   "menus.dashboard.shortcuts.left.shortcut1.icon": "󰈹",
   "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Firefox",
-  "menus.dashboard.shortcuts.left.shortcut3.command": "webcord",
-  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Webcord",
+  "menus.dashboard.shortcuts.left.shortcut3.command": "discord",
+  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Discord",
   "menus.transition": "crossfade",
   "notifications.position": "top right",
   "scalingPriority": "both",
@@ -391,7 +390,7 @@
   "theme.bar.menus.text": "#cdd6f4",
   "theme.bar.menus.tooltip.background": "#11111b",
   "theme.bar.menus.tooltip.text": "#cdd6f4",
-  "theme.bar.outer_spacing": "1.6em",
+  "theme.bar.outer_spacing": "0.25em",
   "theme.bar.transparent": true,
   "theme.font.name": "Ubuntu Nerd Font",
   "theme.font.size": "1.2rem",
@@ -459,5 +458,12 @@
   ],
   "bar.autoHide": "fullscreen",
   "theme.bar.border.location": "none",
-  "theme.bar.enableShadow": false
+  "theme.bar.enableShadow": false,
+  "bar.customModules.storage.labelType": "percentage",
+  "bar.workspaces.numbered_active_indicator": "underline",
+  "bar.workspaces.show_icons": false,
+  "theme.bar.buttons.workspaces.enableBorder": false,
+  "menus.clock.time.hideSeconds": false,
+  "bar.clock.format": "%a, %b %d  %I:%M %p",
+  "bar.workspaces.monitorSpecific": false
 }
