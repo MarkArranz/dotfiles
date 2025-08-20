@@ -5,7 +5,7 @@ return {
 			colorscheme = "catppuccin",
 		},
 	},
-	-- Can remove on close of issue: https://github.com/LazyVim/LazyVim/pull/6354
+	-- Can remove when issue is merged: https://github.com/LazyVim/LazyVim/pull/6354
 	{
 		"akinsho/bufferline.nvim",
 		init = function()
@@ -14,5 +14,17 @@ return {
 				return bufline.get_theme()
 			end
 		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		opts = {
+			sections = {
+				lualine_z = {
+					function()
+						return " " .. os.date("%I:%M %p")
+					end,
+				},
+			},
+		},
 	},
 }
