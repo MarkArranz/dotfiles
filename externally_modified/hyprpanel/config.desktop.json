@@ -64,8 +64,8 @@
   "menus.dashboard.shortcuts.left.shortcut1.command": "firefox",
   "menus.dashboard.shortcuts.left.shortcut1.icon": "󰈹",
   "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Firefox",
-  "menus.dashboard.shortcuts.left.shortcut3.command": "webcord",
-  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Webcord",
+  "menus.dashboard.shortcuts.left.shortcut3.command": "discord",
+  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Discord",
   "menus.transition": "crossfade",
   "notifications.position": "top right",
   "scalingPriority": "both",
@@ -468,5 +468,6 @@
   "theme.bar.buttons.background_opacity": 50,
   "bar.customModules.storage.paths": [
     "/"
-  ]
+  ],
+  "bar.clock.format": "%a, %b %d    %I:%M:%S %p"
 }
