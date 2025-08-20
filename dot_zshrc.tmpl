@@ -59,6 +59,10 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 # go:
 export PATH="$PATH:$HOME/go/bin"
 
+# uv & uvx:
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
 {{ if eq .chezmoi.os "linux" -}}
 
 ## START: HYPRPANEL DEPENDENCIES
@@ -73,6 +77,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # node-version-manager:
 [[ ! -f /usr/share/nvm/init-nvm.sh ]] || source /usr/share/nvm/init-nvm.sh
 
+# uv
+export PATH="/home/mark/.local/share/../bin:$PATH"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 
 # Use python installed from website:
@@ -80,8 +87,6 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:${PATH}"
 
 # uv & uvx:
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
 
 # node-version-manager:
 export NVM_DIR="$HOME/.nvm"
