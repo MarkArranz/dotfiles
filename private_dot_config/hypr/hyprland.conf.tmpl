@@ -11,7 +11,7 @@ source = $HOME/.config/hypr/themes/catppuccin/themes/mocha.conf
 
 {{ if eq .chassisType "laptop" -}}
 
-monitor=eDP-1, 2880x1800@59.99000, 0x0, 1.5
+monitor = eDP-1, 2880x1800@59.99000, 0x0, 1.5
 
 {{- else if eq .chassisType "desktop" -}}
 
@@ -107,8 +107,8 @@ decoration {
     {{ if eq .chassisType "laptop" -}}
 
     shadow {
-      # Laptop efficieny setting
-      enabled = false
+        # Laptop efficieny setting
+        enabled = false
     }
 
     {{- end }}
@@ -143,11 +143,11 @@ misc {
 }
 
 render {
-  direct_scanout = 2
+    direct_scanout = 2
 }
 
 debug {
-  full_cm_proto = true
+    full_cm_proto = true
 }
 
 
@@ -157,6 +157,7 @@ debug {
 
 input {
     kb_layout = us
+    kb_options = caps:escape_shifted_capslock
 
     follow_mouse = 1
 
@@ -164,9 +165,11 @@ input {
 
     {{ if eq .chassisType "laptop" -}}
 
+    kb_model = apple
+
     touchpad {
-      natural_scroll  = true
-      scroll_factor   = 0.8
+        natural_scroll  = true
+        scroll_factor   = 0.8
     }
 
     {{- end }}
@@ -184,7 +187,7 @@ gestures {
 {{ if eq .chassisType "desktop" -}}
 
 cursor {
-  default_monitor = $mainMonitor
+    default_monitor = $mainMonitor
 }
 
 {{- end }}
