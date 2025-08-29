@@ -15,6 +15,7 @@ return {
 			end
 		end,
 	},
+	-- Change date format to 12-hour AM/PM
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
@@ -26,5 +27,10 @@ return {
 				},
 			},
 		},
+	},
+	-- disable mini.pairs
+	{
+		"echasnovski/mini.pairs",
+		enabled = false,
 	},
 }
