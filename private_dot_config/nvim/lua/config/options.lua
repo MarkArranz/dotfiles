@@ -9,9 +9,12 @@ vim.opt.formatoptions = "jcqlnt"
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
 
--- .gotmpl filetype
 vim.filetype.add({
 	extension = {
 		gotmpl = "gotmpl",
+		rasi = "rasi",
+	},
+	pattern = {
+		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
 })
