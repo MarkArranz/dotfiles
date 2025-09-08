@@ -56,8 +56,8 @@ autoload -U compinit && compinit
 # Add .NET Core SDK tools
 export PATH="$PATH:$HOME/.dotnet/tools"
 
-# go:
-export PATH="$PATH:/usr/local/go/bin"
+# go install bin:
+export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 
 # uv & uvx:
 eval "$(uv generate-shell-completion zsh)"
