@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 vim.opt.colorcolumn = "+1"
-vim.opt.formatoptions = "jcqlnt"
+vim.opt.formatoptions = "jcro/qlnt"
 
 -- Python Extras:
 vim.g.lazyvim_python_lsp = "basedpyright"
