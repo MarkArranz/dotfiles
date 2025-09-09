@@ -3,7 +3,7 @@
   "bar.bluetooth.label": false,
   "bar.customModules.hypridle.label": false,
   "bar.customModules.hyprsunset.label": false,
-  "bar.customModules.hyprsunset.temperature": "3000k",
+  "bar.customModules.hyprsunset.temperature": "4000k",
   "bar.customModules.updates.pollingInterval": 1440000,
   "bar.launcher.autoDetectIcon": false,
   "bar.layouts": {
