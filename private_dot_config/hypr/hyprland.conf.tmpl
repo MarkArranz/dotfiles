@@ -178,10 +178,7 @@ input {
 
 {{ if eq .chassisType "laptop" -}}
 
-gestures {
-    workspace_swipe = true
-    workspace_swipe_fingers = 4
-}
+gesture = 4, horizontal, workspace
 
 {{- end }}
 
@@ -200,30 +197,33 @@ cursor {
 
 $mainMod = SUPER
 
+# Which key for hyprland:
+# https://github.com/Hyprhook/Hyprhook/tree/master?tab=readme-ov-file#examples
+
 ## LAUNCHING & CLOSING ##
 # Open new terminal window:
-bind = $mainMod, Return, exec, uwsm app -- $terminal
+bindd = $mainMod, Return, Open new OS terminal window, exec, uwsm app -- $terminal
 # Open launcher:
-bind = $mainMod, Space, exec, uwsm app -- $menu
+bindd = $mainMod, Space, Open app launcher, exec, uwsm app -- $menu
 # Open clipboard history:
-bind = $mainMod, v, exec, uwsm app -- $terminal --class clipse -e 'clipse'
+bindd = $mainMod, v, Open clipboard manager, exec, uwsm app -- $terminal --class clipse -e 'clipse'
 # Open file manager:
-bind = $mainMod, e, exec, uwsm app -- $fileManager
+bindd = $mainMod, e, Open file manager, exec, uwsm app -- $fileManager
 # Open browser:
-bind = $mainMod, b, exec, uwsm app -- $browser
+bindd = $mainMod, b, Open browser, exec, uwsm app -- $browser
 # Close window:
-bind = $mainMod, q, killactive,
+bindd = $mainMod, q, Close window, killactive,
 # Exit session:
-bind = $mainMod, m, exec, uwsm stop
+bindd = $mainMod, m, Terminate session, exec, uwsm stop
 # Lock screen:
-bind = $mainMod, Escape, exec, hyprlock --immediate-render
+bindd = $mainMod, Escape, Lock screen, exec, hyprlock --immediate-render
 # Put system to sleep:
-bind = $mainMod SHIFT, Escape, exec, systemctl sleep
+bindd = $mainMod SHIFT, Sleep, Escape, exec, systemctl sleep
 
 ## WINDOW & FOCUS CONTROLS ##
-bind = $mainMod, f, fullscreen,
-bind = $mainMod SHIFT, f, togglefloating,
-bind = $mainMod, t, togglesplit, # dwindle
+bindd = $mainMod, f, Toggle fullscreen, fullscreen,
+bindd = $mainMod SHIFT, f, Toggle floating, togglefloating,
+bindd = $mainMod, t, Toggle split, togglesplit, # dwindle
 
 # Move focus with mainMod + vim motions
 bind = $mainMod, h, movefocus, l
@@ -241,7 +241,7 @@ bind = $mainMod SHIFT, l, movewindow, r
 bind = $mainMod ALT, h, workspace, -1
 bind = $mainMod ALT, l, workspace, +1
 
-# Switch workspaces with mainMod + [0-9]
+# Select workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1
 bind = $mainMod, 2, workspace, 2
 bind = $mainMod, 3, workspace, 3
@@ -253,7 +253,7 @@ bind = $mainMod, 8, workspace, 8
 bind = $mainMod, 9, workspace, 9
 bind = $mainMod, 0, workspace, 10
 
-# Move active window to a workspace with mainMod + SHIFT + [0-9]
+# Move active window to workspace with mainMod + SHIFT + [0-9]
 bind = $mainMod SHIFT, 1, movetoworkspace, 1
 bind = $mainMod SHIFT, 2, movetoworkspace, 2
 bind = $mainMod SHIFT, 3, movetoworkspace, 3
