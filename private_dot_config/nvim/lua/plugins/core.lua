@@ -5,16 +5,6 @@ return {
 			colorscheme = "catppuccin",
 		},
 	},
-	-- Can remove when issue is merged: https://github.com/LazyVim/LazyVim/pull/6354
-	{
-		"akinsho/bufferline.nvim",
-		init = function()
-			local bufline = require("catppuccin.groups.integrations.bufferline")
-			function bufline.get()
-				return bufline.get_theme()
-			end
-		end,
-	},
 	-- Change date format to 12-hour AM/PM
 	{
 		"nvim-lualine/lualine.nvim",
@@ -26,6 +16,12 @@ return {
 					end,
 				},
 			},
+		},
+		-- Can be removed once v2.0.0 is released:
+		-- https://github.com/fredrikaverpil/neotest-golang/pull/387
+		{
+			"fredrikaverpil/neotest-golang",
+			branch = "feat/treesitter-main",
 		},
 	},
 }
