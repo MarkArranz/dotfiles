@@ -80,6 +80,8 @@ export PATH="/home/mark/.local/share/../bin:$PATH"
 # go install bin:
 export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 
+# texlive:
+export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
