@@ -5,6 +5,9 @@
 vim.opt.colorcolumn = "+1"
 vim.opt.formatoptions = "jcro/qlnt"
 
+vim.o.list = true
+vim.o.listchars = "tab:-->,lead:•,trail:•,space:•,eol:"
+
 -- Python Extras:
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
