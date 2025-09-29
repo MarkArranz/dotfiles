@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Using Mocha flavor in accordance with the style guide:
+# https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
+lavender=0xffb4befe
+overlay0=0xff6c7086
+
+options=(
+  style=round
+  width=5.0
+  hidpi=on
+  active_color="$lavender"
+  inactive_color="$overlay0"
+)
+
+borders "${options[@]}"

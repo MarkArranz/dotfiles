@@ -60,9 +60,9 @@ yabai -m config \
 yabai -m config \
   layout bsp \
   split_type auto \
-  top_padding 0 \
-  bottom_padding 0 \
-  left_padding 0 \
-  right_padding 0 \
+  top_padding 3 \
+  bottom_padding 5 \
+  left_padding 5 \
+  right_padding 5 \
   window_gap 5 \
   auto_balance off
