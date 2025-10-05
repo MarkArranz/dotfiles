@@ -1,16 +1,14 @@
-local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
 local app_icons = require("helpers.app_icons")
 
 local max_workspaces = 9
 local focused_workspace_index = nil
-local is_show_windows = true
 
 local workspaces = {}
 
 -- Update workspace UI to reflect current window state
--- Shows window icons when apps are open and hides them when emtpy,
+-- Shows window icons when apps are open and hides them when empty,
 -- except for the focused workspace which shows a placeholder.
 local function updateWindows(workspace_index)
 	local get_windows =
@@ -20,7 +18,7 @@ local function updateWindows(workspace_index)
 		local icon_line = ""
 		local no_app = true
 
-		for i, open_window in ipairs(open_windows) do
+		for _, open_window in ipairs(open_windows) do
 			no_app = false
 			local app = open_window["app-name"]
 			local lookup = app_icons[app]
@@ -66,11 +64,11 @@ local function updateWindows(workspace_index)
 	end)
 end
 
-for workspace_index = 1, max_workspaces do
-	local workspace = sbar.add("item", {
+for i = 1, max_workspaces do
+	local workspace = sbar.add("item", "aerospace_" .. i, {
 		icon = {
 			font = { family = settings.font.numbers },
-			string = workspace_index,
+			string = i,
 			padding_left = 15,
 			padding_right = 8,
 			color = colors.white,
@@ -92,35 +90,35 @@ for workspace_index = 1, max_workspaces do
 		},
 	})
 
-	workspaces[workspace_index] = workspace
+	workspaces[i] = workspace
 
 	workspace:subscribe("aerospace_workspace_change", function(env)
 		focused_workspace_index = tonumber(env.FOCUSED_WORKSPACE)
-		local is_focused = focused_workspace_index == workspace_index
+		local is_focused = focused_workspace_index == i
 
 		sbar.animate("tanh", 10, function()
 			workspace:set({
 				icon = { highlight = is_focused },
 				label = { highlight = is_focused },
 				background = {
-					border_color = is_focused and colors.black or colors.bg2,
+					border_color = is_focused and colors.bg1 or colors.bg2,
 				},
 			})
 		end)
 	end)
 
 	workspace:subscribe("aerospace_focus_change", function()
-		updateWindows(workspace_index)
+		updateWindows(i)
 	end)
 
 	-- Set initial workspace state
-	updateWindows(workspace_index)
+	updateWindows(i)
 	sbar.exec("aerospace list-workspaces --focused", function(focused_workspace)
 		workspaces[tonumber(focused_workspace)]:set({
 			icon = { highlight = true },
 			label = { highlight = true },
 			background = {
-				border_color = colors.black,
+				border_color = colors.bg1,
 			},
 		})
 	end)
