@@ -13,3 +13,4 @@
 
 [data]
 chassisType = {{ $chassisType | quote }}
+forWork = {{ if eq .chezmoi.hostname "digdug" -}} true {{- else -}} false {{- end }}
